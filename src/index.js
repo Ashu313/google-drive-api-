@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+/*https://instagram-api-78b75.web.app*/
+/**Project Console: https://console.firebase.google.com/project/instagram-api-78b75/overview */
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
