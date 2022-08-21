@@ -16,7 +16,7 @@ const DISCOVERY_DOCS = ['https://www.googleapis.com/discovery/v1/apis/drive/v3/r
 const SCOPES = 'https://www.googleapis.com/auth/drive.metadata.readonly';
 
 
-
+let check=true;
 const Data=()=>{
     const[signedInUser,setSignedIn]=useState(false);
     const[isVisible,setVisible]=useState(false);
@@ -41,47 +41,72 @@ const Data=()=>{
         console.log(res.files);
     })
   }
-var check;
+
 const handleAuthClick=(event)=>{
     gapi.auth2.getAuthInstance().signIn()
     document([]);
-    check=true;
+  //  updateSignIn(isSignedIn);
+   // check=true;
 }
 
 
 
 const updateSignIn=(isSignedIn)=>{
+   
+       
+      
     if(isSignedIn)
     {
-       
-        
         setSignedIn(gapi.auth2.getAuthInstance().currentUser.get().getBasicProfile());
         var profile=gapi.auth2.getAuthInstance().currentUser.get().getBasicProfile();
         setProfile(profile);
-        console.log(profile);
-        console.log('ID: ' + profile.getId());
-        console.log('Full Name: ' + profile.getName());
-        console.log('Given Name: ' + profile.getGivenName());
-        console.log('Family Name: ' + profile.getFamilyName());
-        console.log('Image URL: ' + profile.getImageUrl());
-        console.log('Email: ' + profile.getEmail());
+        FetchFiles();
+        check=false;
+     
+    }
+    else
+    {
+        if(!check)
+        {
+            console.log("signout");
+            handleSignOut();
+            console.log("signout");
+             check=true;
+           
+            
+        }
+        else if(check)
+        {
+            console.log("signin");
+
+            handleAuthClick();
+    
+           
+       
         
-        console.log("eehhee");
+        }
+      //  handleAuthClick();
+    }
+        //console.log(profile);
+       // console.log('ID: ' + profile.getId());
+       // console.log('Full Name: ' + profile.getName());
+        //console.log('Given Name: ' + profile.getGivenName());
+        //console.log('Family Name: ' + profile.getFamilyName());
+        //console.log('Image URL: ' + profile.getImageUrl());
+        //console.log('Email: ' + profile.getEmail());
+        
+        //console.log("eehhee");
       
       
         //console.log(file);
       
     
-         FetchFiles();
+     
       
     
        
 
-    }
-    else
-    {
-       handleAuthClick();
-    }
+    
 }
 
 
@@ -89,10 +114,11 @@ const handleSignOut=(event)=>{
     console.log("ahahahhahaha");
     setVisible(false);
     gapi.auth2.getAuthInstance().signOut();
-    check=false;
+  //  check=false;
+  
+    setSignedIn(false);
   //  handleAuthClick();
  
-    setSignedIn(false);
  //   updateSignIn(false);
     console.log('logout succesfull');
    
