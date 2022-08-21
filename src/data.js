@@ -41,17 +41,19 @@ const Data=()=>{
         console.log(res.files);
     })
   }
-
+var check;
 const handleAuthClick=(event)=>{
     gapi.auth2.getAuthInstance().signIn()
     document([]);
+    check=true;
 }
+
 
 
 const updateSignIn=(isSignedIn)=>{
     if(isSignedIn)
     {
-      
+       
         
         setSignedIn(gapi.auth2.getAuthInstance().currentUser.get().getBasicProfile());
         var profile=gapi.auth2.getAuthInstance().currentUser.get().getBasicProfile();
@@ -78,7 +80,7 @@ const updateSignIn=(isSignedIn)=>{
     }
     else
     {
-        handleAuthClick();
+       handleAuthClick();
     }
 }
 
@@ -87,7 +89,11 @@ const handleSignOut=(event)=>{
     console.log("ahahahhahaha");
     setVisible(false);
     gapi.auth2.getAuthInstance().signOut();
+    check=false;
+  //  handleAuthClick();
+ 
     setSignedIn(false);
+ //   updateSignIn(false);
     console.log('logout succesfull');
    
  }
