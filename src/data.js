@@ -23,8 +23,8 @@ const Data=()=>{
     const [profile,setProfile]=useState(false);
     const [document,setDocuments]=useState([]);
     const [fetch,SetFetch]=useState(false);
-
-  //  const[isLoading,setIsLoading]=useState(false);
+   
+    const[isLoading,setIsLoading]=useState(false);
 
 
   const FetchFiles=(searchTerm=null)=>{
