@@ -87,8 +87,8 @@ const updateSignIn=(isSignedIn)=>{
         }
       //  handleAuthClick();
     }
-        //console.log(profile);
-       // console.log('ID: ' + profile.getId());
+        console.log(profile);
+       console.log('ID: ' + profile.getId());
        // console.log('Full Name: ' + profile.getName());
         //console.log('Given Name: ' + profile.getGivenName());
         //console.log('Family Name: ' + profile.getFamilyName());
