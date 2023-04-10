@@ -114,7 +114,7 @@ const handleSignOut=(event)=>{
     console.log("ahahahhahaha");
     setVisible(false);
     gapi.auth2.getAuthInstance().signOut();
-  //  check=false;
+    check=false;
   
     setSignedIn(false);
  //   handleAuthClick();
