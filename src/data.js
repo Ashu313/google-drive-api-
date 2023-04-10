@@ -89,11 +89,11 @@ const updateSignIn=(isSignedIn)=>{
     }
         console.log(profile);
        console.log('ID: ' + profile.getId());
-       // console.log('Full Name: ' + profile.getName());
-        //console.log('Given Name: ' + profile.getGivenName());
-        //console.log('Family Name: ' + profile.getFamilyName());
-        //console.log('Image URL: ' + profile.getImageUrl());
-        //console.log('Email: ' + profile.getEmail());
+        console.log('Full Name: ' + profile.getName());
+        console.log('Given Name: ' + profile.getGivenName());
+        console.log('Family Name: ' + profile.getFamilyName());
+        console.log('Image URL: ' + profile.getImageUrl());
+        console.log('Email: ' + profile.getEmail());
         
         //console.log("eehhee");
       
@@ -117,7 +117,7 @@ const handleSignOut=(event)=>{
   //  check=false;
   
     setSignedIn(false);
-  //  handleAuthClick();
+ //   handleAuthClick();
  
  //   updateSignIn(false);
     console.log('logout succesfull');
